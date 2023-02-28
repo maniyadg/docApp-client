@@ -23,7 +23,7 @@ const Login = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         dispatch(showLoading())
-        const response = await axios.post('http://localhost:4000/api/login' , values,{withCredentials: true});
+        const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/login` , values,{withCredentials: true});
         window.location.reload()
         dispatch(hideLoading())
 

@@ -13,7 +13,7 @@ function Doctor() {
 
     const getDoctor = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/api/getAllDoctors`,
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/getAllDoctors`,
                 { withCredentials: true },
                 { accessToken: cookies.get('accessToken') }
             );
@@ -31,7 +31,7 @@ function Doctor() {
 
     const handleAccountsts = async (doctors) => {
         try {
-            const response = await axios.post(`http://localhost:4000/api/changeAccountStatus`,
+            const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/changeAccountStatus`,
                 {
                     doctorId:doctors._id,
                     status:doctors.status,

@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
     // Get User Adminor Not
     const getUser = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/api/getUserData`,
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/getUserData`,
                 { withCredentials: true })
             console.log(response.data)
             if (response.data.success) {

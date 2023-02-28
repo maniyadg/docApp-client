@@ -13,7 +13,7 @@ function User() {
 
     const getUser = async() => {
         try {
-            const response = await axios.get(`http://localhost:4000/api/getAllUsers`,
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/getAllUsers`,
             { withCredentials: true } ,
             { accessToken: cookies.get('accessToken') }
             );

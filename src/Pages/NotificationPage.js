@@ -20,7 +20,7 @@ function NotificationPage() {
     // Get User Adminor Not
     const getUser = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/api/getUserData`,
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/getUserData`,
                 { withCredentials: true })
             // console.log(response.data)
             if (response.data.success) {
@@ -34,7 +34,7 @@ function NotificationPage() {
 
     const handleRead = async () => {
         try {
-            const response = await axios.post(`http://localhost:4000/api/get-all-notification`,
+            const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/get-all-notification`,
                 { userId: user && user._id }, { withCredentials: true },
                 { accessToken: cookies.get('accessToken') })
         } catch (error) {
@@ -45,7 +45,7 @@ function NotificationPage() {
 
     const handleDelete = async () => {
         try {
-            const response = await axios.post(`http://localhost:4000/api/delete-all-notification`,
+            const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/delete-all-notification`,
                 { userId: user && user._id }, { withCredentials: true },
                 { accessToken: cookies.get('accessToken') })
         } catch (error) {

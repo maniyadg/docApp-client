@@ -26,11 +26,11 @@ const Register = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         dispatch(showLoading())
-        const response = await axios.post('http://localhost:4000/api/register', values, { withCredentials: true });
+        const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/register`, values, { withCredentials: true });
         dispatch(hideLoading())
         console.log(response.data)
         if (response) {
-            alert('Login Sucessfully')
+            alert('Register Sucessfully')
             navigate('/')
         }
     };

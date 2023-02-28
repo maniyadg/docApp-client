@@ -20,7 +20,7 @@ const ApplyDoctor = () => {
   }, [])
   const getUserid = async () => {
     try {
-      const response = await axios.get(`http://localhost:4000/api/getUserData`,
+      const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/getUserData`,
         { withCredentials: true })
       console.log(response.data)
       if (response.data.success) {
@@ -58,7 +58,7 @@ const ApplyDoctor = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     dispatch(showLoading())
-    const response = await axios.post('http://localhost:4000/api/apply-doctor',
+    const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/apply-doctor`,
       { ...values, userId: userid },
       { withCredentials: true },
       { accessToken: cookies.get('accessToken') },
@@ -77,7 +77,7 @@ const ApplyDoctor = () => {
     try {
       dispatch(showLoading());
       const res = await axios.post(
-        "http://localhost:4000/api/apply-doctor",
+        `${process.env.REACT_APP_BASE_URL}/api/apply-doctor`,
         { ...values, userId: userid },
         { accessToken: cookies.get('accessToken') }
       );
