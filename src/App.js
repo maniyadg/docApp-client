@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import { useSelector } from 'react-redux'
